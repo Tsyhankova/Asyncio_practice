@@ -12,11 +12,8 @@ from time import time
 
 timer = time()
 
-new_dir = os.chdir('C:/Users/Me/Tsyhankova')
+new_dir = os.chdir('C:/')
 path = os.getcwd()
-print(path)
-
-
 files = []
 
 async def recursive_func(path):
@@ -27,7 +24,6 @@ async def recursive_func(path):
         else:
             files.append(file.name)
     return files
-
 
 
 def without_extension(file, ext_list):
@@ -216,12 +212,10 @@ async def moving_file(arg):
 
 
 async def main():
-    
-    path = 'C:/Users/Me/Tsyhankova'
+    path = 'C:/'
     path = aiopath.AsyncPath(path) 
 
     await recursive_func(path)
-
     await docs_folder(files)
     await audio_folder(files)
     await video_folder(files)
